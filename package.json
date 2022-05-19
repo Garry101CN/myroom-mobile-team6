@@ -36,5 +36,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "presents": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "chrome:": "49",
+          "ios": "10"
+        }
+      }
+    ]
+  ]
 }

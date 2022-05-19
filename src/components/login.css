@@ -1,0 +1,33 @@
+.login-canvas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f9fafb;
+    --adm-color-primary: #e2792e;
+}
+
+.login-button{
+    margin-top: 3vh;
+    width: 100%;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.register-button{
+    margin-top: 1vh;
+    width: 100%;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.login-logo{
+    margin-top: 40px;
+    width: 30vh;
+    height: 8vh;
+}
+
+.input-user{
+    margin-top: 3vh;
+}
