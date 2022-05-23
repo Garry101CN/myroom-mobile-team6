@@ -1,12 +1,11 @@
 /**
- * MyRoom 麦荣 - 客户展示子系统 - 登录页面
+ * MyRoom 麦荣 - 客户展示子系统 - 注册页面
  * @Author Xilai Jiang
  * @Version 1.0
  */
 import React from "react"
 // antd-mobile UI组件库
-import {Button, Input, Form, Toast, Mask, SpinLoading} from 'antd-mobile'
-import {Link} from 'react-router-dom';
+import {Button, Input, Form, Toast, Mask, SpinLoading, Dialog} from 'antd-mobile'
 // 网络库axios
 import axios from 'axios'
 import './login.css'
@@ -39,35 +38,43 @@ class Login extends React.Component{
         }else{
             let that = this
             console.log("账号密码合法，准备发起网络请求验证账号密码是否匹配")
-            this.showMask()
-            axios.post('/user/login', {
-                name: this.state.username,
-                password: this.state.passwd
+
+            Dialog.confirm({
+                content: '您确定要注册账号吗？',
+                onConfirm: async () => {
+                    // 执行注册
+                    that.showMask()
+                    axios.post('/user/register', {
+                        name: this.state.username,
+                        password: this.state.passwd
+                    })
+                        .then(function(response){
+                            console.log(response)
+                            that.setState({
+                                visible: false
+                            })
+                            Toast.show({
+                                content:'注册成功',
+                                afterClose: () => {
+                                    console.log("注册成功Toast显示结束")
+                                }
+                            })
+                        })
+                        .catch(function(error){
+                            console.log(error.response.data.message)
+                            that.setState({
+                                visible: false
+                            })
+                            Toast.show({
+                                content:'用户不存在',
+                                afterClose: () => {
+                                    console.log("用户不存在Toast显示结束")
+                                }
+                            })
+                        })
+                }
             })
-                .then(function(response){
-                    console.log(response)
-                    that.setState({
-                        visible: false
-                    })
-                    Toast.show({
-                        content:'登录成功',
-                        afterClose: () => {
-                            console.log("登录成功Toast显示结束")
-                        }
-                    })
-                })
-                .catch(function(error){
-                    console.log(error.response.data.message)
-                    that.setState({
-                        visible: false
-                    })
-                    Toast.show({
-                        content:'用户不存在',
-                        afterClose: () => {
-                            console.log("用户不存在Toast显示结束")
-                        }
-                    })
-                })
+
         }
     }
 
@@ -105,10 +112,12 @@ class Login extends React.Component{
 
                 <img className='login-logo' src={logo} alt='LoginLogo'></img>
 
+                <div className="welcome-register-text">欢迎注册麦荣</div>
+
                 <div className='user-form-panel'>
                     <Form layout='horizontal' className='user-form'>
                         <Form.Item label='用户名' name='username'>
-                            <Input onChange={(e) => this.getUsername(e)} placeholder='请输入用户名' clearable />
+                            <Input onChange={(e) => this.getUsername(e)} placeholder='请输入新的用户名' clearable />
                         </Form.Item>
                         <Form.Item label='密码' name='password'>
                             <Input onChange={(e) => this.getPassword(e)} placeholder='请输入密码' clearable type='password' />
@@ -116,16 +125,7 @@ class Login extends React.Component{
                     </Form>
                 </div>
 
-                <Button className='login-button' color="primary" onClick={() => {this.clickLogin('success')}}>登录</Button>
-                <Link className="link" to={{
-                    pathname: './register',
-                    state: {
-                        data1:{},
-                        data2:{}
-                    }
-                }}>
-                    <Button className='register-button' >注册</Button>
-                </Link>
+                <Button className='login-button' color="primary" onClick={() => {this.clickLogin('success')}}>注册</Button>
 
                 <img className='bottom-logo' src={bottom_logo} alt='BottomLogo'></img>
 

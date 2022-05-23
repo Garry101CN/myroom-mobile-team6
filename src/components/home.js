@@ -20,6 +20,9 @@ class Home extends React.Component{
                     <li>
                         <Link to={"/login"}>登录页面</Link>
                     </li>
+                    <li>
+                        <Link to={"/register"}>注册页面</Link>
+                    </li>
                 </ul>
             </div>
         );

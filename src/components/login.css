@@ -7,19 +7,18 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
-    padding: 10px;
     background-color: #f9fafb;
     --adm-color-primary: #e2792e;
 }
 
 .login-button{
     margin-top: 3vh;
-    width: 100%;
+    width: 97%;
 }
 
 .register-button{
     margin-top: 1vh;
-    width: 100%;
+    width: 97%;
 }
 
 .login-logo{
@@ -55,4 +54,22 @@
     margin-left: -75px;
     background: white;
     border-radius: 16px;
+}
+
+.bottom-logo{
+    position: absolute;
+    width: 20%;
+    height: 4%;
+    bottom: 0;
+    margin-bottom: 35px;
+}
+
+.link{
+    width: 100%;
+}
+
+.welcome-register-text{
+    margin-top: 40px;
+    font-size: 25px;
+    color: #e2792e;
 }
