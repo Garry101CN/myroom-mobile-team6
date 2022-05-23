@@ -1,8 +1,12 @@
 .login-canvas{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    height: 100%;
     padding: 10px;
     background-color: #f9fafb;
     --adm-color-primary: #e2792e;
@@ -11,15 +15,11 @@
 .login-button{
     margin-top: 3vh;
     width: 100%;
-    margin-left: 3px;
-    margin-right: 3px;
 }
 
 .register-button{
     margin-top: 1vh;
     width: 100%;
-    margin-left: 3px;
-    margin-right: 3px;
 }
 
 .login-logo{
@@ -30,4 +30,29 @@
 
 .input-user{
     margin-top: 3vh;
+}
+
+.user-form-panel{
+    margin-top: 25px;
+    width: 100%;
+}
+
+.user-form{
+    width: 400px;
+    width: 100%;
+}
+
+.overlayContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    margin-top: -75px;
+    margin-left: -75px;
+    background: white;
+    border-radius: 16px;
 }
