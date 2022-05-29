@@ -6,9 +6,11 @@
 import React from "react"
 // antd-mobile UI组件库
 import {Button, Input, Form, Toast, Mask, SpinLoading, Dialog} from 'antd-mobile'
+import {withRouter} from 'react-router-dom'
+
 // 网络库axios
 import axios from 'axios'
-import './login.css'
+import './ui.css'
 import logo from './res/image/login_logo.png'
 import bottom_logo from './res/image/bytedance.png';
 
@@ -16,6 +18,12 @@ class Login extends React.Component{
 
     constructor(props) {
         super(props)
+
+        // 检查是否已经登录
+        if(sessionStorage.getItem("user") !== null){
+
+        }
+
         this.state = {
             username: "",
             passwd:"",
@@ -59,6 +67,10 @@ class Login extends React.Component{
                                     console.log("注册成功Toast显示结束")
                                 }
                             })
+                            console.log("将用户名写入缓存")
+                            sessionStorage.setItem("username", that.state.username)
+                            console.log("跳转到主页")
+                            that.props.history.push("/login")
                         })
                         .catch(function(error){
                             console.log(error.response.data.message)
@@ -66,9 +78,9 @@ class Login extends React.Component{
                                 visible: false
                             })
                             Toast.show({
-                                content:'用户不存在',
+                                content:error.response.data.message,
                                 afterClose: () => {
-                                    console.log("用户不存在Toast显示结束")
+                                    console.log("注册失败Toast显示结束")
                                 }
                             })
                         })
@@ -101,7 +113,7 @@ class Login extends React.Component{
     render(){
 
         return (
-            <div className="login-canvas">
+            <div className="canvas">
                 <>
                     <Mask visible={this.state.visible}>
                         <div className="overlayContent">
@@ -135,4 +147,4 @@ class Login extends React.Component{
 
 }
 
-export default Login
+export default withRouter(Login)

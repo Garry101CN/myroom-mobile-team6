@@ -1,4 +1,4 @@
-.login-canvas{
+.canvas{
     position: absolute;
     width: 100%;
     top: 0;
@@ -58,8 +58,8 @@
 
 .bottom-logo{
     position: absolute;
-    width: 20%;
-    height: 4%;
+    width: 16vh;
+    height: 4vh;
     bottom: 0;
     margin-bottom: 35px;
 }
@@ -72,4 +72,36 @@
     margin-top: 40px;
     font-size: 25px;
     color: #e2792e;
+}
+
+.nav-bottom{
+    flex: 0;
+    border-top: solid 1px var(--adm-border-color);
+    width: 100%;
+}
+
+.fragment{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.me-header-area{
+    width: 100%;
+}
+
+.me-header-area-greeting{
+    margin-left: 20px;
+}
+
+.me-operation-area{
+    width: 100%;
+}
+
+.hub-operation-area{
+    width: 100%;
+}
+
+.hub-operation-area-font-main{
+    font-weight: bolder;
 }

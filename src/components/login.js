@@ -6,10 +6,10 @@
 import React from "react"
 // antd-mobile UI组件库
 import {Button, Input, Form, Toast, Mask, SpinLoading} from 'antd-mobile'
-import {Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom'
 // 网络库axios
 import axios from 'axios'
-import './login.css'
+import './ui.css'
 import logo from './res/image/login_logo.png'
 import bottom_logo from './res/image/bytedance.png';
 
@@ -20,7 +20,14 @@ class Login extends React.Component{
         this.state = {
             username: "",
             passwd:"",
-            visible: false
+            visible: false,
+        }
+        console.log("onLoad")
+        console.log()
+        if(sessionStorage.getItem("user")!=null) {
+            console.log("检测到token")
+
+            this.props.history.replace("/")
         }
     }
 
@@ -46,34 +53,46 @@ class Login extends React.Component{
             })
                 .then(function(response){
                     console.log(response)
-                    that.setState({
-                        visible: false
-                    })
+                    that.hideMask()
+                    console.log("登录验证通过，写入缓存")
+                    sessionStorage.setItem("user", that.state.username)
+                    sessionStorage.setItem("token", response.data.token)
+                    console.log("已写入：user -> "+that.state.username+" , token -> "+response.data.token)
                     Toast.show({
                         content:'登录成功',
                         afterClose: () => {
                             console.log("登录成功Toast显示结束")
+                            console.log(that.props)
                         }
                     })
+                    that.props.history.push("/")
                 })
                 .catch(function(error){
                     console.log(error.response.data.message)
-                    that.setState({
-                        visible: false
-                    })
+                    that.hideMask()
                     Toast.show({
-                        content:'用户不存在',
+                        content:error.response.data.message,
                         afterClose: () => {
-                            console.log("用户不存在Toast显示结束")
+                            console.log("登录失败Toast显示结束")
                         }
                     })
                 })
         }
     }
 
+    clickRegister(){
+        this.props.history.push("/register")
+    }
+
     showMask(){
         this.setState({
             visible: true
+        })
+    }
+
+    hideMask(){
+        this.setState({
+            visible: false
         })
     }
 
@@ -94,7 +113,7 @@ class Login extends React.Component{
     render(){
 
         return (
-            <div className="login-canvas">
+            <div className="canvas">
                 <>
                     <Mask visible={this.state.visible}>
                         <div className="overlayContent">
@@ -117,15 +136,7 @@ class Login extends React.Component{
                 </div>
 
                 <Button className='login-button' color="primary" onClick={() => {this.clickLogin('success')}}>登录</Button>
-                <Link className="link" to={{
-                    pathname: './register',
-                    state: {
-                        data1:{},
-                        data2:{}
-                    }
-                }}>
-                    <Button className='register-button' >注册</Button>
-                </Link>
+                <Button className="register-button" onClick={() => this.clickRegister()}>注册</Button>
 
                 <img className='bottom-logo' src={bottom_logo} alt='BottomLogo'></img>
 
@@ -135,4 +146,4 @@ class Login extends React.Component{
 
 }
 
-export default Login
+export default withRouter(Login)
