@@ -80,15 +80,17 @@ class List extends React.Component{
         }else{
             return(
                 <div className="canvas">
-                    <div className="fragment">
-                        <Hub />
-                    </div>
-                    <div className="nav-bottom">
-                        <TabBar onChange={value => this.dealSwift(value)}>
-                            {this.state.tabs.map(item => (
-                                <TabBar.item key={item.key} title={item.title} />
-                            ))}
-                        </TabBar>
+                    <div className="fragment-page">
+                        <div className="fragment">
+                            <Hub />
+                        </div>
+                        <div className="nav-bottom">
+                            <TabBar onChange={value => this.dealSwift(value)}>
+                                {this.state.tabs.map(item => (
+                                    <TabBar.item key={item.key} title={item.title} />
+                                ))}
+                            </TabBar>
+                        </div>
                     </div>
                 </div>
             )

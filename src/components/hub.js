@@ -1,8 +1,11 @@
-import React from "react";
+import React,{CSSProperties} from "react";
 import {withRouter} from 'react-router-dom'
 // 网络库axios
 import axios from 'axios'
 import {Mask, SpinLoading, List} from "antd-mobile";
+import {List as VirtualizedList, AutoSizer} from 'react-virtualized'
+
+
 class Hub extends React.Component{
 
     constructor(props) {
@@ -62,15 +65,17 @@ class Hub extends React.Component{
                         </Mask>
                     </>
 
-                    <List className="hub-operation-area">
-                        {this.state.data.map(activity => (
-                            <List.Item
-                                key={activity.id}
-                                description={activity.author}>
-                                <div className="hub-operation-area-font-main">{activity.name}</div>
-                            </List.Item>
-                        ))}
-                    </List>
+                    <div className="hub-control">
+                        <List className="hub-operation-area">
+                            {this.state.data.map(activity => (
+                                <List.Item
+                                    key={activity.id}
+                                    description={activity.author}>
+                                    <div className="hub-operation-area-font-main">{activity.name}</div>
+                                </List.Item>
+                            ))}
+                        </List>
+                    </div>
 
                 </div>
             )
