@@ -74,12 +74,16 @@
     color: #e2792e;
 }
 
+::-webkit-scrollbar{ /* 隐藏垂直、水平滚动条 */
+    display: none;
+}
+
 .nav-bottom{
     position: absolute;
     border-top: solid 1px var(--adm-border-color);
     width: 100%;
     bottom: 0px;
-    height: 10%;
+    height: 50px;
 }
 
 .me-header-area{
@@ -94,14 +98,18 @@
     width: 100%;
 }
 
+.fragment{ /* 改这里的样式似乎没用，请移步hub-control */
+
+}
+
 .hub-control{
     width: 100%;
-    height: 90%;
     overflow: scroll; /* 不允许子布局超过父布局大小，并且超出范围的部分生成滚动条 */
+    margin-bottom: 50px;
 }
 
 .hub-operation-area{
-    overflow-y: auto;
+    overflow: scroll; /* 不允许子布局超过父布局大小，并且超出范围的部分生成滚动条 */
 }
 
 .hub-operation-area-font-main{

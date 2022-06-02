@@ -70,7 +70,8 @@ class Hub extends React.Component{
                             {this.state.data.map(activity => (
                                 <List.Item
                                     key={activity.id}
-                                    description={activity.author}>
+                                    description={activity.author}
+                                    onClick={() => this.onClickActivity(activity.id)}>
                                     <div className="hub-operation-area-font-main">{activity.name}</div>
                                 </List.Item>
                             ))}
@@ -93,7 +94,7 @@ class Hub extends React.Component{
                     'authorization': that.state.token
                 }
             }).then(function(res){
-                console.log(res.data.message)
+                console.log(res.data)
                 that.setState({
                     data: res.data.data,
                     numsOfData: res.data.data.length
@@ -115,6 +116,11 @@ class Hub extends React.Component{
             visible: false
         })
     }
+
+    onClickActivity(id){
+        console.log("点击Activity ID: "+id)
+    }
+
 }
 
 export default withRouter(Hub);
