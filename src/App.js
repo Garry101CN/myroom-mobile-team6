@@ -4,6 +4,7 @@ import House from "./components/house";
 import Login from "./components/login";
 import Register from "./components/register"
 import List from "./components/list"
+import Activity from "./components/activity"
 
 import React from "react";
 
@@ -20,6 +21,7 @@ function App() {
                   <Route path={"/login"} component={Login} />
                   <Route path={"/register"} component={Register} />
                   <Route exact path={"/"} component={List} />
+                  <Route path={"/activity"} component={Activity} />
               </div>
           </BrowserRouter>
       </div>

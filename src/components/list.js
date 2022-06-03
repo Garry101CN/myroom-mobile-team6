@@ -3,7 +3,8 @@ import {TabBar, Toast} from 'antd-mobile'
 import { withRouter } from 'react-router-dom'
 import Hub from './hub'
 import Me from './me'
-import './ui.css'
+
+import './ui.scss'
 
 class List extends React.Component{
     constructor(props) {

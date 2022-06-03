@@ -3,23 +3,23 @@ import React from "react";
 import {withRouter} from 'react-router-dom';
 import axios from "axios";
 import { Mask, SpinLoading, Button, Space, Swiper, Card, Popover} from 'antd-mobile'
-import './ui.css'
+import './ui.scss'
 // import { SwiperRef } from 'antd-mobile/es/components/swiper'
 
 
 const imgs = ['#ace0ff', '#bcffbd', '#e4fabd', '#ffcfac']
 
 const items = imgs.map((color, index) => (
-  <Swiper.Item key={index}>
-    <div
-      className="house-swiper"
-      style={{ background: color }}
-      onClick={() => {
-      
-    }}
-    >
-    </div>
-  </Swiper.Item>
+    <Swiper.Item key={index}>
+        <div
+            className="house-swiper"
+            style={{ background: color }}
+            onClick={() => {
+
+            }}
+        >
+        </div>
+    </Swiper.Item>
 ))
 
 class House extends React.Component{
@@ -27,6 +27,7 @@ class House extends React.Component{
         super();
         const username = sessionStorage.getItem("user");
         const token = sessionStorage.getItem("token");
+        const toid = sessionStorage.getItem("toId")
 
         this.state = {
             username: username,
@@ -34,11 +35,17 @@ class House extends React.Component{
             id:null,
             data:null,
             visible: false,
-            toid: 65140
+            toid: sessionStorage.getItem("toId")
         }
     }
-    
+
     componentDidMount(){
+
+        if(sessionStorage.getItem("user") == null){
+            console.log("非法入侵，退回登录页面")
+            this.props.history.replace("/login")
+        }
+
         this.showMask();
         //请求有关数据
         axios.get(`/user/house/${this.state.toid}`,
@@ -47,9 +54,9 @@ class House extends React.Component{
                     'authorization': this.state.token
                 }
             }).then((res) => {
-                this.getData(res);
-                console.log(this.state.data);//null
-                this.hideMask();
+            this.getData(res);
+            console.log(this.state.data);//null
+            this.hideMask();
         }).catch(function (error){
             console.log(error)
         })
@@ -123,7 +130,7 @@ class House extends React.Component{
                                 trigger='click'
                                 placement='top'
                             > */}
-                                <Button size="mini" className="house-card-title-button" onClick={e => e.preventDefault()}>房源发布机构</Button>    
+                            <Button size="mini" className="house-card-title-button" onClick={e => e.preventDefault()}>房源发布机构</Button>
                             {/* </Popover> */}
                             <Button size="mini" className="house-card-title-button">相关资质</Button>
                         </Space>
@@ -164,7 +171,7 @@ class House extends React.Component{
                 </Card>
             </div>
         )
-        
+
     }
 }
 

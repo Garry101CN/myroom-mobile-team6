@@ -1,0 +1,226 @@
+@import "~video-react/styles/scss/video-react.scss";
+
+@keyframes linearGradientMove {
+    100% {
+        background-position: 4px 0, -4px 100%, 0 -4px, 100% 4px;
+    }
+}
+
+.canvas{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    background-color: #f9fafb;
+    --adm-color-primary: #e2792e;
+}
+
+.login-button{
+    margin-top: 3vh;
+    width: 97%;
+}
+
+.register-button{
+    margin-top: 1vh;
+    width: 97%;
+}
+
+.login-logo{
+    margin-top: 40px;
+    width: 30vh;
+    height: 8vh;
+}
+
+.input-user{
+    margin-top: 3vh;
+}
+
+.user-form-panel{
+    margin-top: 25px;
+    width: 100%;
+}
+
+.user-form{
+    width: 400px;
+    width: 100%;
+}
+
+.overlayContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    margin-top: -75px;
+    margin-left: -75px;
+    background: white;
+    border-radius: 16px;
+}
+
+.bottom-logo{
+    position: absolute;
+    width: 16vh;
+    height: 4vh;
+    bottom: 0;
+    margin-bottom: 35px;
+}
+
+.link{
+    width: 100%;
+}
+
+.welcome-register-text{
+    margin-top: 40px;
+    font-size: 25px;
+    color: #e2792e;
+}
+
+::-webkit-scrollbar{ /* 隐藏垂直、水平滚动条 */
+    display: none;
+}
+
+.nav-bottom{
+    position: absolute;
+    border-top: solid 1px var(--adm-border-color);
+    width: 100%;
+    bottom: 0px;
+    height: 50px;
+}
+
+.me-header-area{
+    width: 100%;
+}
+
+.me-header-area-greeting{
+    margin-left: 20px;
+}
+
+.me-operation-area{
+    width: 100%;
+}
+
+.fragment{ /* 改这里的样式似乎没用，请移步hub-control */
+
+}
+
+.hub-control{
+    width: 100%;
+    overflow: scroll; /* 不允许子布局超过父布局大小，并且超出范围的部分生成滚动条 */
+    margin-bottom: 50px;
+}
+
+.hub-operation-area{
+    overflow: scroll; /* 不允许子布局超过父布局大小，并且超出范围的部分生成滚动条 */
+}
+
+.hub-operation-area-font-main{
+    font-weight: bolder;
+}
+
+.canvas-activity{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    transform: matrix3d(0, 0, 0);
+    position: relative;
+    width: 400px;
+    height: 100vh;
+    background-color: white;
+    overflow: hidden;
+    border: 1px solid lightgray;
+    .audio_mask {
+        position: absolute;
+        width: 70%;
+        height: 100%;
+        z-index: 100;
+        left: 30px;
+    }
+}
+
+.cardLists {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    div {
+        width: 40%;
+        text-align: center;
+    }
+}
+
+.house-swiper {
+    height: 220px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    user-select: none;
+    /* width: 95%; */
+}
+
+.house-card-style{
+    /* background-color: red; */
+    border-radius: 7px;
+    width: 98%;
+    margin: 5px auto;
+    display: flex;
+    margin-top: 5px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: space-around;
+    border: #eee solid 2px;
+}
+
+.house-card-title{
+    margin-top: 5px;
+}
+
+.house-card-title h3{
+    font-size: 30px;
+    margin: 5px 0 0 0;
+    font-weight: 500;
+    width: 100%;
+}
+
+.house-card-title-button{
+    border:none;
+    color: #bbb;
+}
+
+.house-listing-name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+
+}
+
+.house-listing-name > div{
+    border-left: #eee solid 1.5px;
+    padding-left: 15px;
+    flex: 1;
+}
+
+.house-listing-name > div:first-child{
+    border: 0;
+}
+.house-listing-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 5px 0 15px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.house-listing-info > div{
+    flex: 1;
+    font-size: 14px;
+}

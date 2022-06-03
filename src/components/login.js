@@ -9,7 +9,7 @@ import {Button, Input, Form, Toast, Mask, SpinLoading} from 'antd-mobile'
 import {withRouter} from 'react-router-dom'
 // 网络库axios
 import axios from 'axios'
-import './ui.css'
+import './ui.scss'
 import logo from './res/image/login_logo.png'
 import bottom_logo from './res/image/bytedance.png';
 

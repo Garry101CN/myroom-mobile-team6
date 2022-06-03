@@ -3,8 +3,7 @@ import {withRouter} from 'react-router-dom'
 // 网络库axios
 import axios from 'axios'
 import {Mask, SpinLoading, List} from "antd-mobile";
-import {List as VirtualizedList, AutoSizer} from 'react-virtualized'
-
+import Activity from './activity'
 
 class Hub extends React.Component{
 
@@ -118,7 +117,9 @@ class Hub extends React.Component{
     }
 
     onClickActivity(id){
-        console.log("点击Activity ID: "+id)
+        console.log("跳转到活动页，ID为: "+id)
+        sessionStorage.setItem("activity-id", id)
+        this.props.history.push("/activity")
     }
 
 }
