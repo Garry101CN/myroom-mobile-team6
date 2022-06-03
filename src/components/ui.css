@@ -115,3 +115,73 @@
 .hub-operation-area-font-main{
     font-weight: bolder;
 }
+
+.house-swiper {
+    height: 220px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    user-select: none;
+    /* width: 95%; */
+}
+
+.house-card-style{
+    /* background-color: red; */
+    border-radius: 7px;
+    width: 98%;
+    margin: 5px auto;
+    display: flex;
+    margin-top: 5px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: space-around;
+    border: #eee solid 2px;
+}
+
+.house-card-title{
+    margin-top: 5px;
+}
+
+.house-card-title h3{
+    font-size: 30px;
+    margin: 5px 0 0 0;
+    font-weight: 500;
+    width: 100%;
+}
+
+.house-card-title-button{
+    border:none;
+    color: #bbb;
+}
+
+.house-listing-name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+
+}
+
+.house-listing-name > div{
+    border-left: #eee solid 1.5px;
+    padding-left: 15px;
+    flex: 1;
+}
+
+.house-listing-name > div:first-child{
+    border: 0;
+}
+.house-listing-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 5px 0 15px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.house-listing-info > div{
+    flex: 1;
+    font-size: 14px;
+}
