@@ -1,8 +1,5 @@
 # MyRoom 麦荣线上看房·字节跳动镜像计划第六小组
 
-欢迎来到麦荣移动端客户预览子系统开发项目。
-Welcome to MyRoom Mobile Client Platform.
-
 欢迎字节跳动镜像计划`Team6`同学加入麦荣Web开发项目。这里有项目的开发计划、工作安排和一些实用资料。我们希望大家与其他营员小伙伴充分交流，与技术导师积极沟通，最终共同完成一个让人赞叹的项目，在一个月的时间内收获属于自己的进步！
 
 ## ⏰ 重要时间节点 Time Table
@@ -33,11 +30,11 @@ Welcome to MyRoom Mobile Client Platform.
 
 | Name | 技术栈 |
 |:-:|:--|
-| 王绪东 | 微信小程序+HarmonyOS 后端 express,mysql,spring会一点 |
-| 蒋希来 | Android移动端（java+kotlin）+微信小程序(wxml+wxss+js) 后端会一点django和mysql |
-| 魏榕 | react+typescript+redux+antd 后端用过express+mongodb |
-| 刘洋 | vue2/3+ts+ vuex，微信小程序，后端懂点express+mongodb |
-| 申帆 | vue2/3+ vuex，后端懂点node/express |
+| 王绪东 | 前端: React, 微信小程序, HarmonyOS; 后端: Express, MySQL, Spring |
+| 蒋希来 | 前端: React, Android移动端（Java+Kotlin）, 微信小程序; 后端: Django, MySQL |
+| 魏榕 | 前端: React, TypeScript+Redux+Antd; 后端: Express, MongoDB |
+| 刘洋 | 前端: Vue2/3, TS, VueX, 微信小程序; 后端: Express, MongoDB |
+| 申帆 | 前端: Vue2/3, VueX; 后端: Node/Express |
 
 ## 🚩 分队情况
 
