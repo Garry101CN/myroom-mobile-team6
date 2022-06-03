@@ -1,6 +1,5 @@
-# 麦荣MyRoom 在线看房平台 · 镜像计划第六小组
+#MyRoom 麦荣线上看房·字节跳动镜像计划第六小组
 
-这里是麦荣MyRoom客户展示子系统项目。
 Welcome to MyRoom Mobile Client Platform.
 
 欢迎字节跳动镜像计划`Team6`同学加入麦荣Web开发项目。这里有项目的开发计划、工作安排和一些实用资料。我们希望大家与其他营员小伙伴充分交流，与技术导师积极沟通，最终共同完成一个让人赞叹的项目，在一个月的时间内收获属于自己的进步！
@@ -8,7 +7,7 @@ Welcome to MyRoom Mobile Client Platform.
 ## ⏰ 重要时间节点 Time Table
 
 距离项目截止 2 天
- 
+
 ## 🪟 日程安排
 
 | 日期| 时间 | 安排 | 备注 |
@@ -66,7 +65,18 @@ Welcome to MyRoom Mobile Client Platform.
 `build 0.0.4`
 - [x] MyRoom 后端 - 数据库开发
 - [x] MyRoom 后端 - 接口调试
-- [x] MyRoom 后端 - 
+- [x] MyRoom 后端 - API文档编写
+
+`build 0.0.6`
+- [x] MyRoom Web 前端 - 经纪人子系统基本开发
+- [x] MyRoom Web 前端 - 经纪人子系统初步测试
+
+`build 0.0.8`
+- [x] MyRoom Mobile 前端 - 客户子系统基本开发
+- [x] MyRoom Mobile 前端 - 客户子系统初步测试
+
+`pre-alpha 1.0.0`
+- [x] MyRoom Web 和 MyRoom Mobile 初步联调
 
 ## 📖 项目说明
 
