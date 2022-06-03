@@ -104,12 +104,64 @@ class House extends React.Component{
         }
     }
 
+    getPropertyRight = () => {
+        switch (this.state.data?.property_right){
+            case 1:
+                return "共有"
+            case 2:
+                return "非共有"
+        }
+    }
+
+    getOwnership = () => {
+        switch(this.state.data?.ownership){
+            case 1:
+                return "商品房"
+            case 2:
+                return "公房"
+            case 3:
+                return "央产房"
+            case 4:
+                return "军产房"
+            case 5:
+                return "校产房"
+            case 6:
+                return "私产"
+            case 7:
+                return "经济适用房"
+            case 8:
+                return "永久产权"
+            case 9:
+                return "空置房"
+            case 10:
+                return "使用权房"
+            case 99:
+                return "其他"
+        }
+    }
+
+    getCertificate = () => {
+        switch(this.state.data?.property_certificate_period){
+            case 0:
+                return "不满二"
+            case 1:
+                return "满二"
+            case 2:
+                return "满五"
+            case 3:
+                return "其他"
+        }
+    }
+
     houseSource = () => {
         if(this.state.data?.data_source_id === 1)return '诸葛';
         else if(this.state.data?.data_source_id === 2) return '安居客';
         else return '未知';
     }
     render() {
+
+        console.log(this.state.data)
+
         return (
             <div>
                 <>
@@ -130,9 +182,8 @@ class House extends React.Component{
                                 trigger='click'
                                 placement='top'
                             > */}
-                            <Button size="mini" className="house-card-title-button" onClick={e => e.preventDefault()}>房源发布机构</Button>
+                            <Button size="mini" className="house-card-title-button" onClick={e => e.preventDefault()}>房源发布机构： {this.houseSource()}</Button>
                             {/* </Popover> */}
-                            <Button size="mini" className="house-card-title-button">相关资质</Button>
                         </Space>
                     </Space>
                     <Space className="house-listing-name">
@@ -167,6 +218,23 @@ class House extends React.Component{
                     </Space>
                     <Space className="house-listing-info">
                         <div><span style={{color:"#aaa"}}>楼层</span><span>&nbsp;&nbsp;{this.state.data?.floor_leve === 1 ? '高楼层' : this.state.data?.floor_level === 2? '中楼层': '低楼层' + '/共' + this.state.data?.total_floor + '层'}</span></div>
+                        <div><span style={{color:"#aaa"}}>产权</span><span>&nbsp;&nbsp;{this.state.data?.property_right === null ? '未知' : this.getPropertyRight()}</span></div>
+                    </Space>
+                    <Space className="house-listing-info">
+                        <div><span style={{color:"#aaa"}}>卧室</span><span>&nbsp;&nbsp;{this.state.data?.floor_plan_room+'个'}</span></div>
+                        <div><span style={{color:"#aaa"}}>厅室</span><span>&nbsp;&nbsp;{this.state.data?.floor_plan_hall+'个'}</span></div>
+                    </Space>
+                    <Space className="house-listing-info">
+                        <div><span style={{color:"#aaa"}}>厕所</span><span>&nbsp;&nbsp;{this.state.data?.floor_plan_bath+'个'}</span></div>
+                        <div><span style={{color:"#aaa"}}>厨房</span><span>&nbsp;&nbsp;{this.state.data?.floor_plan_kitchen+'个'}</span></div>
+                    </Space>
+                    <Space className="house-listing-info">
+                        <div><span style={{color:"#aaa"}}>交易权属</span><span>&nbsp;&nbsp;{this.state.data?.ownership === null ? '未知' : this.getOwnership()}</span></div>
+                        <div><span style={{color:"#aaa"}}>房源状态</span><span>&nbsp;&nbsp;{this.state.data?.house_status === 0 ? "正常" : "下架"}</span></div>
+                    </Space>
+                    <Space className="house-listing-info">
+                        <div><span style={{color:"#aaa"}}>唯一住房</span><span>&nbsp;&nbsp;{this.state.data?.property_only === 1 ? "是" : "否"}</span></div>
+                        <div><span style={{color:"#aaa"}}>房本年限</span><span>&nbsp;&nbsp;{this.state.data?.property_certificate_period === null ? '未知' : this.getCertificate()}</span></div>
                     </Space>
                 </Card>
             </div>
